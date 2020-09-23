@@ -1,0 +1,43 @@
+---
+title: "Markdown ML 1"
+author: "Reginald Mordi"
+date: "9/22/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+# download data set
+#https://data.europa.eu/euodp/en/data/dataset/covid-19-coronavirus-data
+covid <- read.csv("covid.csv")
+#categotical variables - countriesAndTerritories
+#quantitative variables - cases, death
+#descriptive statistics
+mean(covid$cases)
+max(covid$cases)
+sd(covid$deaths)
+#transform one variable
+class(4)
+#transform from numeric to interger
+as.integer(covid$cases)
+#plot 1 quantitative variable and 1 scatterplot
+library(carData)
+deaths <- table(covid$deaths)
+pie(deaths,radius = +1,main = "covid deaths",col = "red")
+#scatter plot
+plot(covid$cases, covid$day,xlab = "cases", ylab = "day", main = "covid deaths")
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
